@@ -1,9 +1,9 @@
-// アプリヘッダー。タイトルとチャンク進捗バーを表示する
+// アプリヘッダー。タイトル・進捗バー・使い方ボタンを表示する
 import { useAppContext } from '../../hooks/AppContext'
 import styles from './Header.module.css'
 
 export function Header(): React.ReactElement {
-  const { state } = useAppContext()
+  const { state, dispatch } = useAppContext()
   const { data, deck, chunkStart, chunkSize } = state
 
   // 現在チャンク末尾位置を進捗として表示する
@@ -12,10 +12,19 @@ export function Header(): React.ReactElement {
 
   return (
     <header className={styles.header}>
-      <h1>
-        {data?.meta.title ?? '学習アプリ'}
-        {data?.meta.subtitle ? <span className={styles.subtitle}> | {data.meta.subtitle}</span> : null}
-      </h1>
+      <div className={styles.titleRow}>
+        <h1>
+          {data?.meta.title ?? '学習アプリ'}
+          {data?.meta.subtitle ? <span className={styles.subtitle}> | {data.meta.subtitle}</span> : null}
+        </h1>
+        <button
+          className={styles.helpBtn}
+          onClick={() => dispatch({ type: 'OPEN_HOW_TO_USE' })}
+          aria-label="使い方を見る"
+        >
+          ？
+        </button>
+      </div>
       <div className={styles.pbar}>
         <div className={styles.pbarFill} style={{ width: `${pct}%` }} />
       </div>

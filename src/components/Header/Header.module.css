@@ -8,16 +8,46 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.header h1 {
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.titleRow h1 {
   font-size: 0.95rem;
   font-weight: 900;
   letter-spacing: 0.06em;
-  margin-bottom: 6px;
+  flex: 1;
+  min-width: 0;
 }
 
 .subtitle {
   font-weight: 400;
   opacity: 0.85;
+}
+
+.helpBtn {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.16s;
+}
+
+.helpBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .pbar {

@@ -16,6 +16,7 @@ const initialState: AppState = {
   testRevealed: false,
   currentSubject: 'all',
   screen: 'loader',
+  prevScreen: 'loader',
 }
 
 /** 現在チャンクの末尾インデックス（exclusive）を算出するヘルパー */
@@ -162,6 +163,13 @@ function reducer(state: AppState, action: AppAction): AppState {
 
     case 'CHANGE_CHUNK_SIZE':
       return { ...state, chunkSize: Math.max(3, Math.min(15, state.chunkSize + action.payload)) }
+
+    case 'OPEN_HOW_TO_USE':
+      // howToUse は loader 以外から開かれる想定だが型上 NonHelpScreen を保証するため as を使用
+      return { ...state, prevScreen: state.screen as AppState['prevScreen'], screen: 'howToUse' }
+
+    case 'CLOSE_HOW_TO_USE':
+      return { ...state, screen: state.prevScreen }
 
     default:
       return state

@@ -9,7 +9,8 @@
       "Bash(Remove-Item -Path \"d:\\\\ws\\\\App\\\\active-recall-learning-app\\\\public\\\\vite.svg\" -Force)",
       "Bash(New-Item -ItemType Directory -Force -Path \"d:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\components\\\\LoaderOverlay\")",
       "PowerShell(Head -50)",
-      "PowerShell(Copy-Item \"D:\\\\ws\\\\App\\\\active-recall-learning-app\\\\temp\\\\questions.json\" \"D:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\assets\\\\data\\\\questions.json\")"
+      "PowerShell(Copy-Item \"D:\\\\ws\\\\App\\\\active-recall-learning-app\\\\temp\\\\questions.json\" \"D:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\assets\\\\data\\\\questions.json\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"D:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\components\\\\HowToUseOverlay\")"
     ]
   }
 }

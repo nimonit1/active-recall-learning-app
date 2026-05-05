@@ -37,7 +37,10 @@ export type Phase = 'study' | 'test'
 export type Result = null | true | false
 
 /** 現在表示中の画面 */
-export type Screen = 'loader' | 'session' | 'chunkDone' | 'allDone'
+export type Screen = 'loader' | 'session' | 'chunkDone' | 'allDone' | 'howToUse'
+
+/** 使い方ページを開く前に戻れる画面（howToUse自身は除く） */
+export type NonHelpScreen = Exclude<Screen, 'howToUse'>
 
 /** アプリ全体の状態 */
 export interface AppState {
@@ -56,6 +59,8 @@ export interface AppState {
   testRevealed: boolean
   currentSubject: string
   screen: Screen
+  /** 使い方ページを開く前の画面（閉じたときに戻る先） */
+  prevScreen: NonHelpScreen
 }
 
 /** Reducerに送出するアクション */
@@ -72,3 +77,5 @@ export type AppAction =
   | { type: 'RESTART_NG' }
   | { type: 'RESTART_ALL' }
   | { type: 'CHANGE_CHUNK_SIZE'; payload: number }
+  | { type: 'OPEN_HOW_TO_USE' }
+  | { type: 'CLOSE_HOW_TO_USE' }

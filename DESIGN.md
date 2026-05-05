@@ -39,15 +39,16 @@ React Context + useReducer による状態管理を採用。コンポーネン�
 App
 ├── LoaderOverlay（screen === 'loader'）
 └── session/chunkDone/allDone 時
-    ├── Header（タイトル・進捗バー）
-    └── main
-        ├── PhaseBanner（フェーズ表示）
-        ├── TabBar（教科フィルター）
-        ├── SettingsBar（チャンクサイズ・シャッフル）
-        ├── ScorePanel（正解・不正解・残り）
-        ├── Card + Navigation（screen === 'session'）
-        ├── ChunkDoneOverlay（screen === 'chunkDone'）
-        └── AllDoneOverlay（screen === 'allDone'）
+    ├── Header（タイトル・進捗バー・❓ボタン）
+    ├── main
+    │   ├── PhaseBanner（フェーズ表示）
+    │   ├── TabBar（教科フィルター）
+    │   ├── SettingsBar（チャンクサイズ・シャッフル）
+    │   ├── ScorePanel（正解・不正解・残り）
+    │   ├── Card + Navigation（screen === 'session'）
+    │   ├── ChunkDoneOverlay（screen === 'chunkDone'）
+    │   └── AllDoneOverlay（screen === 'allDone'）
+    └── HowToUseOverlay（screen === 'howToUse'、全画面オーバーレイ）
 ```
 
 ### 状態管理
@@ -56,6 +57,8 @@ App
 
 ```
 screen: 'loader' → 'session' → 'chunkDone' → 'session' → ... → 'allDone'
+                       ↕ OPEN/CLOSE_HOW_TO_USE
+                   'howToUse'（prevScreen に戻り先を保存）
 ```
 
 ### デザインシステム

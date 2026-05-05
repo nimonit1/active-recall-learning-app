@@ -10,6 +10,7 @@ import { Card } from './components/Card/Card'
 import { Navigation } from './components/Navigation/Navigation'
 import { ChunkDoneOverlay } from './components/ChunkDoneOverlay/ChunkDoneOverlay'
 import { AllDoneOverlay } from './components/AllDoneOverlay/AllDoneOverlay'
+import { HowToUseOverlay } from './components/HowToUseOverlay/HowToUseOverlay'
 import type { Data } from './types'
 import styles from './App.module.css'
 
@@ -41,6 +42,8 @@ function AppContent(): React.ReactElement {
         {state.screen === 'chunkDone' && <ChunkDoneOverlay />}
         {state.screen === 'allDone' && <AllDoneOverlay />}
       </main>
+      {/* 使い方ページは全画面オーバーレイで既存画面に重ねて表示 */}
+      {state.screen === 'howToUse' && <HowToUseOverlay />}
     </div>
   )
 }
