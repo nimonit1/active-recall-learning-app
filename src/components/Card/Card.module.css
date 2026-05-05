@@ -1,0 +1,159 @@
+.wrap {
+  margin-bottom: 8px;
+}
+
+.card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.1s;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+/* 学習フェーズ */
+.cardStudy {
+  border: 2.5px solid var(--blue-l);
+  background: var(--white);
+  padding: 22px 18px;
+}
+
+.cardStudy.answered {
+  border-color: #b2e8c8;
+  background: #f0fbf4;
+}
+
+/* テストフェーズ */
+.cardTest {
+  border: 2.5px solid #ffe0b2;
+  background: var(--white);
+}
+
+.cardTest .qWrap {
+  padding: 22px 18px;
+}
+
+.cardTest.revealed {
+  border-color: var(--blue-l);
+  background: linear-gradient(160deg, var(--white) 60%, var(--blue-l) 100%);
+}
+
+.secLabel {
+  font-size: 0.68rem;
+  color: var(--blue);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.secLabel::before {
+  content: '📚 ';
+  font-size: 0.7rem;
+}
+
+.qLabel {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.qText {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.answerBlock {
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 14px;
+  display: none;
+  margin: 0 18px 18px;
+}
+
+/* cardStudy.answered の場合は answer-block が card 内に収まるように */
+.cardStudy .answerBlock {
+  margin: 0 0 0;
+  border-radius: 0 0 calc(var(--radius) - 2px) calc(var(--radius) - 2px);
+}
+
+.answerBlock.show {
+  display: block;
+}
+
+.aLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.aVal {
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.6;
+  color: #ffe08a;
+}
+
+.flipHint {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.judgeRow {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.jbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 28px;
+  border-radius: 12px;
+  border: 1.5px solid;
+  cursor: pointer;
+  transition: transform 0.1s;
+  font-size: 1rem;
+}
+
+.jbtn:active {
+  transform: scale(0.95);
+}
+
+.jbtn.ok {
+  background: #e8f8ef;
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.jbtn.ok:hover {
+  background: #d0f5e0;
+}
+
+.jbtn.ng {
+  background: #fdeaea;
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.jbtn.ng:hover {
+  background: #fad4d4;
+}
+
+.jbtnLbl {
+  font-size: 0.62rem;
+  font-weight: 700;
+}

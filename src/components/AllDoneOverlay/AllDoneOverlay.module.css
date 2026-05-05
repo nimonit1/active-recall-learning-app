@@ -1,0 +1,71 @@
+.box {
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.emoji {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+.pct {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+.detail {
+  font-size: 0.82rem;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.16s;
+  border: none;
+}
+
+.retryNg {
+  background: var(--red);
+  color: var(--white);
+}
+
+.retryNg:hover:not(:disabled) {
+  background: #c02020;
+}
+
+.retryNg:disabled {
+  background: #ccc;
+}
+
+.restartAll {
+  background: var(--white);
+  color: var(--blue);
+  border: 2px solid var(--blue);
+}
+
+.restartAll:hover {
+  background: var(--blue-l);
+}

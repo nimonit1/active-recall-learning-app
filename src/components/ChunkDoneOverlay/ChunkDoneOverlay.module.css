@@ -1,0 +1,54 @@
+.box {
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.score {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+
+.next {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.next:hover {
+  background: var(--blue-d);
+}
+
+.retryNg {
+  background: var(--red);
+  color: var(--white);
+}
+
+.retryNg:hover {
+  background: #c02020;
+}

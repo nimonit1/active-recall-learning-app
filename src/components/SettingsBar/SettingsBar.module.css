@@ -1,0 +1,58 @@
+.bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.chunkCtrl {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--white);
+  border: 1.5px solid var(--blue-l);
+  border-radius: 99px;
+  padding: 3px 8px;
+}
+
+.chunkBtn {
+  font-size: 0.9rem;
+  padding: 2px 6px;
+  border-radius: 99px;
+  border: 1.5px solid var(--blue-l);
+  background: var(--white);
+  color: var(--blue);
+}
+
+.chunkBtn:hover {
+  background: var(--blue-l);
+}
+
+.chunkVal {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue);
+  min-width: 20px;
+  text-align: center;
+}
+
+.chunkLabel {
+  font-size: 0.72rem;
+  color: var(--gray);
+}
+
+.ctrlBtn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: 1.5px solid var(--blue);
+  color: var(--blue);
+  background: var(--white);
+  transition: all 0.16s;
+}
+
+.ctrlBtn:hover {
+  background: var(--blue-l);
+}

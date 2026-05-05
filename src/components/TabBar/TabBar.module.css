@@ -1,0 +1,34 @@
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: 1.5px solid var(--blue);
+  color: var(--blue);
+  background: var(--white);
+  transition: all 0.16s;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background: var(--blue-l);
+}
+
+.tab.active {
+  background: var(--blue);
+  color: var(--white);
+}

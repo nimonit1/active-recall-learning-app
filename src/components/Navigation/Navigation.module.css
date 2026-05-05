@@ -1,0 +1,43 @@
+.navRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nbtn {
+  flex: 1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 10px 0;
+  border-radius: 99px;
+  border: 1.5px solid var(--blue);
+  color: var(--blue);
+  background: var(--white);
+  transition: background 0.16s;
+}
+
+.nbtn:hover:not(:disabled) {
+  background: var(--blue-l);
+}
+
+.nbtn:disabled {
+  opacity: 0.3;
+}
+
+.startTest {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.startTest:hover {
+  background: var(--blue-d);
+}
+
+.navCt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gray);
+  min-width: 54px;
+  text-align: center;
+  white-space: nowrap;
+}

@@ -1,0 +1,83 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 128, 158, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  gap: 16px;
+}
+
+.dropZone {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  max-width: 340px;
+  width: 90%;
+  border: 2.5px dashed var(--blue-l);
+  transition: border-color 0.2s;
+}
+
+.dropZone:hover,
+.dragging {
+  border-color: var(--blue);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.sub {
+  font-size: 0.78rem;
+  color: var(--gray);
+  margin-bottom: 12px;
+}
+
+.fileBtn {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 99px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+}
+
+.fileBtn:hover {
+  background: var(--blue-d);
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--red);
+}
+
+.defaultBtn {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.defaultBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}

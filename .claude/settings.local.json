@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(Remove-Item -Path \"d:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\App.css\" -Force)",
+      "Bash(Remove-Item -Path \"d:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\App.tsx\" -Force)",
+      "Bash(Remove-Item -Path \"d:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\assets\\\\react.svg\" -Force)",
+      "Bash(Remove-Item -Path \"d:\\\\ws\\\\App\\\\active-recall-learning-app\\\\public\\\\vite.svg\" -Force)",
+      "Bash(New-Item -ItemType Directory -Force -Path \"d:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\components\\\\LoaderOverlay\")",
+      "PowerShell(Head -50)",
+      "PowerShell(Copy-Item \"D:\\\\ws\\\\App\\\\active-recall-learning-app\\\\temp\\\\questions.json\" \"D:\\\\ws\\\\App\\\\active-recall-learning-app\\\\src\\\\assets\\\\data\\\\questions.json\")"
+    ]
+  }
+}
