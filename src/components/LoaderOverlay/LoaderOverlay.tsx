@@ -1,9 +1,8 @@
-// JSONファイルの読み込み画面。ファイル選択・ドラッグ&ドロップ・デフォルトデータ使用に対応
-import { useRef, useState } from 'react'
+// JSONファイルの読み込み画面。ファイル選択・ドラッグ&ドロップ・内蔵問題集選択に対応
+import { useRef, useState, useEffect } from 'react'
 import type { DragEvent } from 'react'
-import { loadFromFile, validateData } from '../../utils/dataLoader'
+import { loadFromFile, loadBuiltinDecks } from '../../utils/dataLoader'
 import type { Data } from '../../types'
-import defaultDataJson from '../../assets/data/questions.json'
 import styles from './LoaderOverlay.module.css'
 
 interface Props {
@@ -13,7 +12,13 @@ interface Props {
 export function LoaderOverlay({ onLoad }: Props): React.ReactElement {
   const [dragging, setDragging] = useState(false)
   const [error, setError] = useState('')
+  const [builtinDecks, setBuiltinDecks] = useState<{ filename: string; data: Data }[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
+
+  /** 内蔵問題集をマウント時に非同期ロード */
+  useEffect(() => {
+    void loadBuiltinDecks().then(setBuiltinDecks)
+  }, [])
 
   /** ファイルを読み込んでonLoadに渡す */
   async function handleFile(file: File): Promise<void> {
@@ -35,15 +40,6 @@ export function LoaderOverlay({ onLoad }: Props): React.ReactElement {
     setDragging(false)
     const file = e.dataTransfer.files?.[0]
     if (file) void handleFile(file)
-  }
-
-  /** ビルド済みデフォルトデータを直接使用する */
-  function useDefault(): void {
-    try {
-      onLoad(validateData(defaultDataJson))
-    } catch {
-      setError('デフォルトデータの読み込みに失敗しました')
-    }
   }
 
   return (
@@ -69,9 +65,26 @@ export function LoaderOverlay({ onLoad }: Props): React.ReactElement {
         />
         {error && <p className={styles.error}>{error}</p>}
       </div>
-      <button className={styles.defaultBtn} onClick={useDefault}>
-        デフォルトデータを使用
-      </button>
+      {builtinDecks.length > 0 && (
+        <div className={styles.builtinSection}>
+          <p className={styles.builtinLabel}>内蔵問題集</p>
+          <ul className={styles.builtinList}>
+            {builtinDecks.map(({ filename, data }) => (
+              <li key={filename}>
+                <button
+                  className={styles.builtinItem}
+                  onClick={() => onLoad(data)}
+                >
+                  <span className={styles.builtinTitle}>{data.meta.title}</span>
+                  {data.meta.subtitle && (
+                    <span className={styles.builtinSub}>{data.meta.subtitle}</span>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   )
 }

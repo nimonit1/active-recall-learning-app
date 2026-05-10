@@ -26,3 +26,20 @@ export function loadFromFile(file: File): Promise<Data> {
     reader.readAsText(file)
   })
 }
+
+/** src/assets/data/ 内の全JSONを自動検出してロード。スキーマ不正のファイルはスキップ */
+export async function loadBuiltinDecks(): Promise<{ filename: string; data: Data }[]> {
+  const modules = import.meta.glob<{ default: unknown }>('../assets/data/*.json')
+  const results: { filename: string; data: Data }[] = []
+  for (const [path, loader] of Object.entries(modules)) {
+    try {
+      const mod = await loader()
+      const data = validateData(mod.default)
+      const filename = path.split('/').pop() ?? path
+      results.push({ filename, data })
+    } catch (e) {
+      console.warn(`[loadBuiltinDecks] スキーマ不正のためスキップ: ${path}`, e)
+    }
+  }
+  return results
+}

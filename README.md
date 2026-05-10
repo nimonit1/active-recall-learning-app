@@ -24,11 +24,12 @@ npm run dev
 ## 開発コマンド
 
 ```bash
-npm run dev      # 開発サーバー起動
-npm run build    # 本番ビルド
-npm run lint     # ESLint
-npm test         # ユニットテスト
-npm run preview  # ビルド済みアプリのプレビュー
+npm run dev               # 開発サーバー起動
+npm run build             # 本番ビルド
+npm run lint              # ESLint
+npm test                  # ユニットテスト
+npm run preview           # ビルド済みアプリのプレビュー
+npm run validate:questions  # 問題JSONファイルのスキーマ検証
 ```
 
 ## 機能
@@ -40,9 +41,23 @@ npm run preview  # ビルド済みアプリのプレビュー
 - **不正解再試行** — セット内・全体の不正解カードだけ再挑戦
 - **使い方ページ** — ヘッダーの❓ボタンからアクティブリコール学習法・操作手順・JSONの作り方を確認できる
 
-## 問題データの形式
+## 問題データの管理
 
-`src/assets/data/questions.json` を差し替えることで任意の問題セットを使用できる。ローダー画面でJSONファイルをドロップしてもよい。
+`src/assets/data/` に `.json` ファイルを置くだけで、アプリ起動時のローダー画面に「内蔵問題集」として自動的に一覧表示される。ファイル名は任意。表示名はJSON内の `meta.title` が使われる。
+
+ローダー画面でJSONファイルをドロップ・選択することも可能（上書き読み込み）。
+
+スキーマ不正のファイルは一覧から除外される（コンソールに警告が出る）。
+
+### スキーマ検証
+
+```bash
+npm run validate:questions
+```
+
+`src/assets/data/` 内の全JSONを検証し、合否と枚数をコンソールに出力する。GitHub Actionsのデプロイ時にも自動で実行され、失敗があるとデプロイが止まる。
+
+### JSONフォーマット
 
 ```json
 {

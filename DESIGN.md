@@ -30,6 +30,7 @@ React Context + useReducer による状態管理を採用。コンポーネン�
 |------|------|
 | 進捗の永続化なし | ページリロードで進捗がリセットされる（バニラJS版から変更なし） |
 | 問題データのバリデーション | 最小限のバリデーションのみ。不正なJSONは汎用エラーメッセージを表示 |
+| 複数JSON間の整合性 | 各ファイルは独立してバリデーション済みだが、ファイル間の重複IDチェックは行わない |
 
 ## 7. 詳細設計
 
@@ -60,6 +61,12 @@ screen: 'loader' → 'session' → 'chunkDone' → 'session' → ... → 'allDon
                        ↕ OPEN/CLOSE_HOW_TO_USE
                    'howToUse'（prevScreen に戻り先を保存）
 ```
+
+### 複数問題JSON対応
+
+`src/assets/data/*.json` に配置した全JSONファイルが Viteの `import.meta.glob` で自動検出され、ローダー画面に一覧表示される。スキーマ不正のファイルはスキップし、有効なファイルのみ表示する。
+
+GitHub Actionsのデプロイワークフローでは `scripts/validate-questions.mjs` による事前検証ステップを設け、不正なJSONがあればビルド・デプロイを停止する。
 
 ### デザインシステム
 

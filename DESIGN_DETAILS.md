@@ -52,22 +52,31 @@ results = [...results[0..chunkStart], ...nulls, ...results[end..]]
 
 ---
 
-## LoaderOverlay のデフォルトデータ
+## LoaderOverlay の内蔵問題集
 
-Viteのバンドル機能でJSONを直接インポートし、fetchを使わずにデフォルトデータを提供している。
+`import.meta.glob('../assets/data/*.json')` で `src/assets/data/` 内の全JSONを遅延ロードする。Viteはビルド時にglobパターンを解決し、各ファイルを動的インポートとしてバンドルする。
 
 ```typescript
-import defaultDataJson from '../../assets/data/questions.json'
-validateData(defaultDataJson)  // 型チェックを通す
+const modules = import.meta.glob<{ default: unknown }>('../assets/data/*.json')
+for (const [path, loader] of Object.entries(modules)) {
+  const mod = await loader()
+  // mod.default にJSONの内容が入る
+}
 ```
 
-本番ビルド時はJSONがJSバンドルに含まれるため、`file://` プロトコルやCORSの問題を回避できる。
+各JSONは `validateData()` でスキーマ検証し、合格したもののみ画面に表示する。不正なファイルはコンソール警告のみでユーザーには見せない。
 
 ---
 
 ## ファイルロードの優先順位
 
 1. ファイルドロップ/ファイル選択 → `loadFromFile(file)` → `FileReader` API
-2. 「デフォルトデータを使用」 → バンドル済みJSONを直接使用
+2. 内蔵問題集リストを選択 → `import.meta.glob` で遅延ロード済みのデータを使用
 
-ファイル選択が常に優先され、デフォルトデータはフォールバックとして機能する。
+---
+
+## GitHub Actions バリデーション
+
+`scripts/validate-questions.mjs` は Node.js 標準モジュールのみで実装（追加依存なし）。検証ロジックは `src/utils/dataLoader.ts` の `validateData` に加え、`cards[].subject` が `subjects[].id` に含まれるかの整合性チェックも行う。
+
+`GITHUB_STEP_SUMMARY` 環境変数が存在する場合（GitHub Actions環境）、検証結果をMarkdownテーブルとしてStep Summaryに書き込む。1件でも失敗すると `process.exit(1)` でワークフローを停止し、以降のビルド・デプロイステップは実行されない。

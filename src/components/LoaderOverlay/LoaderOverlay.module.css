@@ -68,16 +68,52 @@
   color: var(--red);
 }
 
-.defaultBtn {
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 10px 24px;
-  border-radius: 99px;
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+.builtinSection {
+  max-width: 340px;
+  width: 90%;
 }
 
-.defaultBtn:hover {
+.builtinLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.builtinList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.builtinItem {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: var(--white);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.builtinItem:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+
+.builtinTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.builtinSub {
+  font-size: 0.75rem;
+  opacity: 0.8;
 }
