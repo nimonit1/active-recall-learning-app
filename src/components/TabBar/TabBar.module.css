@@ -1,9 +1,9 @@
 .tabs {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   overflow-x: auto;
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
   scrollbar-width: none;
 }
 
@@ -13,9 +13,9 @@
 
 .tab {
   flex-shrink: 0;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 5px 12px;
+  padding: 7px 16px;
   border-radius: 99px;
   border: 1.5px solid var(--blue);
   color: var(--blue);

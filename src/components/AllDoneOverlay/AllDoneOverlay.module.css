@@ -1,46 +1,46 @@
 .box {
   text-align: center;
-  padding: 28px 16px;
+  padding: 36px 24px;
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
 .emoji {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 2.8rem;
+  margin-bottom: 14px;
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 900;
   color: var(--blue);
-  margin-bottom: 4px;
-}
-
-.pct {
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: var(--orange);
   margin-bottom: 6px;
 }
 
+.pct {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
 .detail {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--gray);
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .btns {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .btn {
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  padding: 14px;
+  padding: 16px;
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.16s;

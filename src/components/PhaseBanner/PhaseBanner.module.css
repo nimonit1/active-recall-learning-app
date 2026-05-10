@@ -1,14 +1,14 @@
 .banner {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: 14px 0 10px;
+  gap: 10px;
+  margin: 20px 0 16px;
 }
 
 .pill {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  padding: 3px 10px;
+  padding: 5px 12px;
   border-radius: 99px;
   background: var(--blue-l);
   color: var(--blue);
@@ -24,6 +24,6 @@
 }
 
 .label {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--gray);
 }

@@ -1,5 +1,5 @@
 .wrap {
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 .card {
@@ -8,7 +8,7 @@
   cursor: pointer;
   transition: transform 0.1s;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .card:active {
@@ -19,7 +19,7 @@
 .cardStudy {
   border: 2.5px solid var(--blue-l);
   background: var(--white);
-  padding: 22px 18px;
+  padding: 28px 24px;
 }
 
 .cardStudy.answered {
@@ -34,7 +34,7 @@
 }
 
 .cardTest .qWrap {
-  padding: 22px 18px;
+  padding: 28px 24px;
 }
 
 .cardTest.revealed {
@@ -43,39 +43,39 @@
 }
 
 .secLabel {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   color: var(--blue);
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .secLabel::before {
   content: '📚 ';
-  font-size: 0.7rem;
+  font-size: 0.72rem;
 }
 
 .qLabel {
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--gray);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .qText {
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 700;
-  line-height: 1.75;
-  margin-bottom: 14px;
+  line-height: 1.85;
+  margin-bottom: 20px;
 }
 
 .answerBlock {
   background: var(--blue);
   color: var(--white);
   border-radius: 10px;
-  padding: 14px;
+  padding: 18px;
   display: none;
-  margin: 0 18px 18px;
+  margin: 0 24px 24px;
 }
 
 /* cardStudy.answered の場合は answer-block が card 内に収まるように */
@@ -89,44 +89,44 @@
 }
 
 .aLabel {
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   letter-spacing: 0.1em;
   opacity: 0.7;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .aVal {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 900;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #ffe08a;
 }
 
 .flipHint {
   text-align: center;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--gray);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .judgeRow {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 16px;
+  margin-bottom: 14px;
 }
 
 .jbtn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 10px 28px;
+  gap: 4px;
+  padding: 14px 32px;
   border-radius: 12px;
   border: 1.5px solid;
   cursor: pointer;
   transition: transform 0.1s;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .jbtn:active {
@@ -154,6 +154,6 @@
 }
 
 .jbtnLbl {
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 700;
 }
